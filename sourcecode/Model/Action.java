@@ -1,14 +1,21 @@
 package Model;
 
-/**
- * A record representing an action performed on a binary search tree. An action consists of a key
- * and a flag indicating whether the action was an insertion or not.
- *
- * @param key The key involved in the action.
- * @param isInsert A flag indicating whether the action was an insertion. If true, the action was an
- *        insertion. If false, the action was a deletion.
- */
-public record Action(int key, boolean isInsert) {
+public class Action {
+    private final int key;
+    private final boolean isInsert;
+
+    public Action(int key, boolean isInsert) {
+        this.key = key;
+        this.isInsert = isInsert;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public boolean isInsert() {
+        return isInsert;
+    }
 }
 
 
