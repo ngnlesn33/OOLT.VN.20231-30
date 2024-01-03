@@ -151,30 +151,6 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     }
 
     @Override
-    // Breadth-first traversal from the root
-    public void breadthFirstTraversal() {
-        breadthFirstTraversal(root);
-    }
-
-    /**
-     * Breadth-first traversal from a subtree
-     */
-    protected void breadthFirstTraversal(TreeNode<E> root) {
-        if (root == null)
-            return;
-        Queue<TreeNode<E>> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            TreeNode<E> node = queue.remove();
-            System.out.print(node.element + " ");
-            if (node.left != null)
-                queue.add(node.left);
-            if (node.right != null)
-                queue.add(node.right);
-        }
-    }
-
-    @Override
     /* Get the number of nodes in the tree */
     public int getSize() {
         return size;
