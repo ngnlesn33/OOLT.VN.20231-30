@@ -7,9 +7,16 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Stack;
 import java.util.List;
@@ -18,6 +25,9 @@ import java.util.ArrayList;
 public class BSTAnimationController {
     @FXML
     private TextField tfKey;
+
+    @FXML
+    private Button backButton;
 
     // Add your BST and BTView instances here
     private final BST<Integer> tree; /// Create a tree
@@ -190,6 +200,24 @@ public class BSTAnimationController {
             view.setStatus(key + " " + action + " redone");
             // Move the action back to the undo stack
             pushUndoAction(redoAction);
+        }
+    }
+
+    @FXML
+    private void handleBack(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/main_menu.fxml"));
+            Parent root = loader.load();
+
+            // Get the MainMenuController and set the mainStage
+            MainMenuController mainMenuController = loader.getController();
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            mainMenuController.setMainStage(stage);
+            stage.setScene(new Scene(root, 300, 400));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

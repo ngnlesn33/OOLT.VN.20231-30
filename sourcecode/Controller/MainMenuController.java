@@ -14,15 +14,20 @@ import java.io.IOException;
 
 public class MainMenuController {
     private Stage mainStage; // Add this field
+    @FXML
     private static final Logger LOGGER = Logger.getLogger(MainMenuController.class.getName());
+
+    public void initialize() {
+        
+    }
 
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
     }
 
-
     @FXML
-    private void handleGenericTree() {}
+    private void handleGenericTree() {
+    }
 
     @FXML
     private void handleBinarySearchTree() {
@@ -35,7 +40,8 @@ public class MainMenuController {
     }
 
     @FXML
-    private void handleBalancedBinaryTree() {}
+    private void handleBalancedBinaryTree() {
+    }
 
     @FXML
     private void showHelpDialog() {
@@ -76,6 +82,11 @@ public class MainMenuController {
             stage.setScene(scene);
             stage.setTitle(title);
             stage.show();
+
+            // Close the main menu window after the tree visualization window is shown
+            if (mainStage != null) {
+                mainStage.close();
+            }
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to load the FXML file: " + fxmlFile, e);
         }
