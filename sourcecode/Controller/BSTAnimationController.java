@@ -254,7 +254,7 @@ public class BSTAnimationController {
         // Create a timeline to schedule the animation, each element will be highlighted
         // for 2
         // seconds and the next element will be highlighted after 2 seconds
-        // The last element will be highlighted for 2 seconds and then the nodes will be
+        // The last element will be highlighted for 2 seconds and then the   will be
         // unhighlighted after 2 seconds as well (total 4 seconds)
         // The total time for the animation is 2 * elements.size() + 2 seconds
         // The BFS traversal will block the UI thread, so we need to run it in a
