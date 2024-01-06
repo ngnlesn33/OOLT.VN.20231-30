@@ -1,7 +1,7 @@
 package view;
 
-import model.RBNode;
-import model.RedBlackTree;
+import model.redblacktree.RBNode;
+import model.redblacktree.RedBlackTree;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;

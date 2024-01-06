@@ -1,4 +1,4 @@
-package model;
+package model.redblacktree;
 public class RBNode<E extends Comparable<E>> {
     protected E data;
     public String color; // Can be "R", "B", or "DB"

@@ -1,4 +1,8 @@
-package model;
+package model.redblacktree;
+
+import model.redblacktree.DuplicateItemException;
+import model.redblacktree.EmptyTreeException;
+import model.redblacktree.RBNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

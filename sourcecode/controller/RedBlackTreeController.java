@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import model.*;
+import model.redblacktree.*;
 import view.RBTreeView;
 
 import java.io.IOException;

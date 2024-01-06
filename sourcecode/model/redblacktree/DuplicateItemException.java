@@ -1,4 +1,4 @@
-package model;
+package model.redblacktree;
 
 import java.io.Serial;
 

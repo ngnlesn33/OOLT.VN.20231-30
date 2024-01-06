@@ -1,21 +1,21 @@
-package model;
+package model.redblacktree;
 
-public class InsertCommand implements Command {
+public class DeleteCommand implements Command {
     private final RedBlackTree<Integer> tree;
     private final int key;
 
-    public InsertCommand(RedBlackTree<Integer> tree, int key) {
+    public DeleteCommand(RedBlackTree<Integer> tree, int key) {
         this.tree = tree;
         this.key = key;
     }
 
     @Override
     public void execute() {
-        tree.insert(key);
+        tree.delete(key);
     }
 
     @Override
     public void undo() {
-        tree.delete(key);
+        tree.insert(key);
     }
 }
