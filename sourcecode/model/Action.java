@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class Action {
     private final int key;

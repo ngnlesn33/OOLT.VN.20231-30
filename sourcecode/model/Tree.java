@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 // Return an iterator to traverse elements in the tree
 public interface Tree<E> extends Iterable<E> {

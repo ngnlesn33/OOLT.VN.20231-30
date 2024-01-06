@@ -1,8 +1,8 @@
-package Controller;
+package controller;
 
-import Model.Action;
-import Model.BST;
-import View.BTView;
+import model.Action;
+import model.BST;
+import view.BTView;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -206,7 +206,7 @@ public class BSTAnimationController {
     @FXML
     private void handleBack(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/main_menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/main_menu.fxml"));
             Parent root = loader.load();
 
             // Get the MainMenuController and set the mainStage

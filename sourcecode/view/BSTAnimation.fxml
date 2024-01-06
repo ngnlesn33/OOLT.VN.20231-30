@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 
 <BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Controller.BSTAnimationController">
+            fx:controller="controller.BSTAnimationController">
     <top>
         <HBox alignment="BASELINE_LEFT">
             <Button fx:id="backButton" onAction="#handleBack" text="BACK"/>
