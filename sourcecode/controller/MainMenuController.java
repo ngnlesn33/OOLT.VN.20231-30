@@ -14,7 +14,14 @@ import java.io.IOException;
 
 public class MainMenuController {
     private Stage mainStage; // Add this field
+
+    @FXML
     private static final Logger LOGGER = Logger.getLogger(MainMenuController.class.getName());
+
+    public void initialize() {
+        
+    }
+
 
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
@@ -27,10 +34,15 @@ public class MainMenuController {
 
     @FXML
     private void handleBinarySearchTree() {
+        handleTreeTypeSelection("/view/BSTAnimation.fxml", "BST Visualization");
+
     }
 
     @FXML
     private void handleAVLTree() {
+
+        handleTreeTypeSelection("AVLAnimation.fxml", "AVL Visualization");
+
     }
 
     @FXML
@@ -86,4 +98,6 @@ public class MainMenuController {
             LOGGER.log(Level.SEVERE, "Failed to load the FXML file: " + fxmlFile, e);
         }
     }
+
 }
+

@@ -1,11 +1,15 @@
 package main;
 
+
+import controller.MainMenuController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import controller.MainMenuController;
+
+
 
 public class MainApp extends Application {
 
@@ -25,4 +29,6 @@ public class MainApp extends Application {
         primaryStage.setScene(new Scene(root, 300, 400));
         primaryStage.show();
     }
+
 }
+
