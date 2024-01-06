@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -22,6 +22,7 @@ public class MainMenuController {
 
     @FXML
     private void handleGenericTree() {
+        handleTreeTypeSelection("/view/GenericTreeAnimation.fxml", "Generic Tree Visualization");
     }
 
     @FXML
@@ -34,6 +35,7 @@ public class MainMenuController {
 
     @FXML
     private void handleBalancedBinaryTree() {
+        handleTreeTypeSelection("/view/red-black-tree.fxml", "Balanced Binary Tree Visualization");
     }
 
     @FXML
@@ -75,6 +77,11 @@ public class MainMenuController {
             stage.setScene(scene);
             stage.setTitle(title);
             stage.show();
+
+            // Close the main menu window after the tree visualization window is shown
+            if (mainStage != null) {
+                mainStage.close();
+            }
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to load the FXML file: " + fxmlFile, e);
         }

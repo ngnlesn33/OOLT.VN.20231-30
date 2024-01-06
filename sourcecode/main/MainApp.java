@@ -1,11 +1,11 @@
-package Main;
+package main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import Controller.MainMenuController;
+import controller.MainMenuController;
 
 public class MainApp extends Application {
 
@@ -15,7 +15,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/main_menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/main_menu.fxml"));
         Parent root = loader.load();
 
         MainMenuController controller = loader.getController();

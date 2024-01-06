@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
 <VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="Controller.MainMenuController"
+      fx:controller="controller.MainMenuController"
       alignment="CENTER" spacing="10">
 
     <Label text="Tree Visualization App" />
