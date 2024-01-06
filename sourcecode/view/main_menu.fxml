@@ -14,5 +14,5 @@
     <Button text="Balanced Binary Tree" onAction="#handleBalancedBinaryTree"/>
     <Button text="Help" onAction="#showHelpDialog"/>
     <Button text="Quit" onAction="#askForConfirmationAndExit"/>
-
 </VBox>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.RedBlackTreeController">
+    <top>
+        <HBox alignment="BASELINE_LEFT">
+            <Button fx:id="backButton" onAction="#handleBack" text="BACK"/>
+        </HBox>
+    </top>
+    <center>
+        <!-- Your BTView component can go here -->
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="5">
+            <Label text="Enter a key:"/>
+            <TextField fx:id="textField" alignment="BASELINE_RIGHT" prefColumnCount="3"/>
+            <Button onAction="#handleInsert" text="Insert"/>
+            <Button onAction="#handleDelete" text="Delete"/>
+            <Button mnemonicParsing="false" onAction="#handleUpdate" text="Update"/>
+            <Button mnemonicParsing="false" onAction="#handleTraverseBFS" text="Traverse(BFS)"/>
+            <Button mnemonicParsing="false" onAction="#handleSearch" text="Search"/>
+            <Button mnemonicParsing="false" onAction="#handleUndo" text="Undo"/>
+            <Button mnemonicParsing="false" onAction="#handleRedo" text="Redo"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
