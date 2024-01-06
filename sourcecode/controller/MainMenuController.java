@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -14,7 +14,12 @@ import java.io.IOException;
 
 public class MainMenuController {
     private Stage mainStage; // Add this field
+    @FXML
     private static final Logger LOGGER = Logger.getLogger(MainMenuController.class.getName());
+
+    public void initialize() {
+        
+    }
 
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
@@ -22,15 +27,16 @@ public class MainMenuController {
 
     @FXML
     private void handleGenericTree() {
-        handleTreeTypeSelection("/view/GenericTreeAnimation.fxml", "Generic Tree");
     }
 
     @FXML
     private void handleBinarySearchTree() {
+        handleTreeTypeSelection("/View/BSTAnimation.fxml", "BST Visualization");
     }
 
     @FXML
     private void handleAVLTree() {
+        handleTreeTypeSelection("AVLAnimation.fxml", "AVL Visualization");
     }
 
     @FXML
@@ -76,6 +82,11 @@ public class MainMenuController {
             stage.setScene(scene);
             stage.setTitle(title);
             stage.show();
+
+            // Close the main menu window after the tree visualization window is shown
+            if (mainStage != null) {
+                mainStage.close();
+            }
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to load the FXML file: " + fxmlFile, e);
         }
