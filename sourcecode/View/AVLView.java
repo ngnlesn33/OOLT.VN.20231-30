@@ -1,13 +1,14 @@
-package View;
+package view;
 
-import Model.AVL;
-import Model.AVL.AVLNode;
+import model.avl.AVL;
+import model.avl.AVL.AVLNode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import model.avl.AVL;
 
 import java.util.HashMap;
 import java.util.Map;

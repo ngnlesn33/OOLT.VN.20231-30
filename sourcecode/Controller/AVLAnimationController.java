@@ -1,12 +1,12 @@
-package Controller;
+package controller;
 
-import Model.AVL;
-import Model.Action;
-import View.AVLView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import model.avl.AVL;
+import model.avl.Action;
+import view.AVLView;
 
 import java.util.Stack;
 
@@ -151,7 +151,7 @@ public class AVLAnimationController {
     void handleUndo(ActionEvent event) {
         Action lastAction = popUndoAction();
         if (lastAction != null) {
-            int key = lastAction.key();
+            int key = lastAction.getKey();
             String action;
             if (lastAction.isInsert()) {
                 tree.delete(key);
@@ -171,7 +171,7 @@ public class AVLAnimationController {
     void handleRedo(ActionEvent event) {
         Action redoAction = popRedoAction();
         if (redoAction != null) {
-            int key = redoAction.key();
+            int key = redoAction.getKey();
             String action;
             if (redoAction.isInsert()) {
                 tree.insert(key);
@@ -197,4 +197,6 @@ public class AVLAnimationController {
         }
     }
 
+    public void handleTraverseBFS(ActionEvent event) {
+    }
 }

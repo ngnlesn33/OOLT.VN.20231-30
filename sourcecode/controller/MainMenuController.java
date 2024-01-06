@@ -41,7 +41,7 @@ public class MainMenuController {
     @FXML
     private void handleAVLTree() {
 
-        handleTreeTypeSelection("AVLAnimation.fxml", "AVL Visualization");
+        handleTreeTypeSelection("/view/AVLAnimation.fxml", "AVL Visualization");
 
     }
 
@@ -90,10 +90,10 @@ public class MainMenuController {
             stage.setTitle(title);
             stage.show();
 
-            // Close the main menu window after the tree visualization window is shown
-            if (mainStage != null) {
-                mainStage.close();
-            }
+//            // Close the main menu window after the tree visualization window is shown
+//            if (mainStage != null) {
+//                mainStage.close();
+//            }
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to load the FXML file: " + fxmlFile, e);
         }

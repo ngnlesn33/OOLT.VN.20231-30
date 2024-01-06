@@ -1,15 +1,16 @@
 package view;
 
-import model.bstmodel.BST;
-import model.bstmodel.BST.TreeNode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import java.util.Map;
+import model.bstmodel.BST;
+import model.bstmodel.BST.TreeNode;
+
 import java.util.HashMap;
+import java.util.Map;
 
 public class BTView extends Pane {
     private final BST<Integer> tree;
@@ -38,7 +39,7 @@ public class BTView extends Pane {
     /**
      * Display a subtree rooted at position (x, y)
      */
-    private void displayTree(BST.TreeNode<Integer> current, double x, double y, double hGap) {
+    private void displayTree(TreeNode<Integer> current, double x, double y, double hGap) {
         if (current.getLeft() != null) {
             // Draw a line to the left node
             getChildren().add(new Line(x - hGap, y + vGap, x, y));
