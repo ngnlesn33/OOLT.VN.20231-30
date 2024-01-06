@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.MainMenuController"
+      alignment="CENTER" spacing="10">
+
+    <Label text="Tree Visualization App" />
+
+    <Button text="Generic Tree" onAction="#handleGenericTree"/>
+    <Button text="Binary Search Tree" onAction="#handleBinarySearchTree"/>
+    <Button text="AVL Tree" onAction="#handleAVLTree"/>
+    <Button text="Balanced Binary Tree" onAction="#handleBalancedBinaryTree"/>
+    <Button text="Help" onAction="#showHelpDialog"/>
+    <Button text="Quit" onAction="#askForConfirmationAndExit"/>
+
+</VBox>
