@@ -22,6 +22,7 @@ public class MainMenuController {
 
     @FXML
     private void handleGenericTree() {
+        handleTreeTypeSelection("/View/GenericTreeAnimation.fxml", "Generic Tree");
     }
 
     @FXML
