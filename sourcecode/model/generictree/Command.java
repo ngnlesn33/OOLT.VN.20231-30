@@ -1,4 +1,4 @@
-package model;
+package model.generictree;
 
 public interface Command {
     void execute();

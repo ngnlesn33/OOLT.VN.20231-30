@@ -1,4 +1,7 @@
-package model;
+package model.generictree;
+
+import model.generictree.Command;
+import model.generictree.GenericTree;
 
 public class UpdateCommand implements Command {
     private final GenericTree<Integer> tree;

@@ -1,7 +1,7 @@
 package controller;
 
-import model.Action;
-import model.BST;
+import model.bstmodel.Action;
+import model.bstmodel.BST;
 import view.BTView;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

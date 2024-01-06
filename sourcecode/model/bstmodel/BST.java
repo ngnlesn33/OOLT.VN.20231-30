@@ -1,4 +1,6 @@
-package model;
+package model.bstmodel;
+
+import model.AbstractTree;
 
 import java.util.LinkedList;
 import java.util.Queue;

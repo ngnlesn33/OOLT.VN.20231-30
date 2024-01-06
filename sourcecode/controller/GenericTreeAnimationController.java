@@ -1,6 +1,6 @@
 package controller;
 
-import model.*;
+import model.generictree.*;
 import view.GenericTreeView;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
