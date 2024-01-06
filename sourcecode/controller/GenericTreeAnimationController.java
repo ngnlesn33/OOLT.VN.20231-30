@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import Model.*;
-import View.GenericTreeView;
+import model.*;
+import view.GenericTreeView;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -188,6 +188,6 @@ public class GenericTreeAnimationController {
     @FXML
 
     public void handleBack(ActionEvent event) {
-        
+
     }
 }

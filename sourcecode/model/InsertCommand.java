@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class InsertCommand implements Command {
     private final GenericTree<Integer> tree;

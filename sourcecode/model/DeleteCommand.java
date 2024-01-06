@@ -1,6 +1,6 @@
-package Model;
+package model;
 
-import Model.GenericTree.TreeNode;
+import model.GenericTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

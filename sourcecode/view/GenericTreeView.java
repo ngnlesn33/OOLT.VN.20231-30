@@ -1,6 +1,6 @@
-package View;
+package view;
 
-import Model.GenericTree;
+import model.GenericTree;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
