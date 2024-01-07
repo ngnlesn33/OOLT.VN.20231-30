@@ -1,5 +1,10 @@
 package controller;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import view.BTView;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -11,6 +16,7 @@ import javafx.util.Duration;
 import model.bstmodel.Action;
 import model.bstmodel.BST;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -19,6 +25,8 @@ import java.util.Stack;
 public class BSTAnimationController {
     @FXML
     private TextField tfKey;
+    @FXML
+    private Button backButton;
 
     // Add your BST and BTView instances here
     private final BST<Integer> tree; /// Create a tree
@@ -241,6 +249,19 @@ public class BSTAnimationController {
     }
 
     public void handleBack(ActionEvent event) {
+        // handle back action
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/main_menu.fxml"));
+            Parent root = loader.load();
 
+            // Get the MainMenuController and set the mainStage
+            MainMenuController mainMenuController = loader.getController();
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            mainMenuController.setMainStage(stage);
+            stage.setScene(new Scene(root, 300, 400));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

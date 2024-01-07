@@ -79,6 +79,7 @@ public class RedBlackTreeController {
         } catch (NumberFormatException e) {
             view.setText("You must enter an integer");
         }
+        textField.setText("");
     }
 
     @FXML
@@ -106,6 +107,7 @@ public class RedBlackTreeController {
         } catch (NumberFormatException e) {
             view.setText("You must enter an integer");
         }
+        textField.setText("");
     }
 
     @FXML
@@ -125,6 +127,8 @@ public class RedBlackTreeController {
         } catch (NumberFormatException e) {
             view.setText("You must enter an integer");
         }
+        textField.setText("");
+
     }
 
     @FXML
@@ -147,6 +151,7 @@ public class RedBlackTreeController {
             view.displayTree();
             view.setText(key + " is updated to " + newKey);
         }
+        textField.setText("");
 
     }
 
