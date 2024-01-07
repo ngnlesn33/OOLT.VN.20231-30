@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.scene.control.Button;
 import view.BTView;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -18,7 +17,6 @@ import java.util.List;
 import java.util.Stack;
 
 public class BSTAnimationController {
-    public Button backButton;
     @FXML
     private TextField tfKey;
 
