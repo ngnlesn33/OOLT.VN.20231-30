@@ -20,7 +20,6 @@ public class AVLAnimationController {
     private final Stack<Action> undoStack = new Stack<>();
     private final Stack<Action> redoStack = new Stack<>();
 
-
     private void pushAction(int key, boolean isInsert) {
         undoStack.push(new Action(key, isInsert));
         // Clear the redo stack when a new action is performed
@@ -98,9 +97,9 @@ public class AVLAnimationController {
         clearRedoStack(); // Clear the redo stack after a new action
     }
 
-
     // Change the node with current value to a new value
-    // User input the current value and new value in the text fields respectively and click the
+    // User input the current value and new value in the text fields respectively
+    // and click the
     // Update button to change
     // the node value in the tree view accordingly.
     @FXML
@@ -133,6 +132,7 @@ public class AVLAnimationController {
         // After user clicks the Update button, the text field should be cleared
         tfKey.setText("");
     }
+
     @FXML
     void handleSearch(ActionEvent event) {
         // Search for a node in the tree. Highlight the node if found.
