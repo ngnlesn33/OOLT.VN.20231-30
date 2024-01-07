@@ -1,9 +1,5 @@
 package model.redblacktree;
 
-import model.redblacktree.DuplicateItemException;
-import model.redblacktree.EmptyTreeException;
-import model.redblacktree.RBNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -77,10 +73,10 @@ public class RedBlackTree<E extends Comparable<E>> {
             RBNode<E> grandparent = grandparent(node);
             // Case 3: The parent and uncle are red
             if (isRed(parent) && isRed(uncle)) {
-                parent.color = "B";            // Change parent to black
-                uncle.color = "B";                // Change uncle to black
-                grandparent.color = "R";        // Change grandparent to red
-                insertionCleanup(grandparent);    // Recursively check grandparent for any violations
+                parent.color = "B"; // Change parent to black
+                uncle.color = "B"; // Change uncle to black
+                grandparent.color = "R"; // Change grandparent to red
+                insertionCleanup(grandparent); // Recursively check grandparent for any violations
             }
 
             // Case 4: The parent is red and the uncle is black
@@ -108,16 +104,16 @@ public class RedBlackTree<E extends Comparable<E>> {
 
                 // Case 5a: The node and parent are left children
                 if (isLeftChild(node) && isLeftChild(parent)) {
-                    parent.color = "B";            // Change parent to black
-                    grandparent.color = "R";    // Change grandparent to red
-                    rightRotate(grandparent);    // Right rotate the grandparent
+                    parent.color = "B"; // Change parent to black
+                    grandparent.color = "R"; // Change grandparent to red
+                    rightRotate(grandparent); // Right rotate the grandparent
                 }
 
                 // Case 5b: The node and parent are right children
                 else if (isRightChild(node) && isRightChild(parent)) {
-                    parent.color = "B";            // Change the parent to black
-                    grandparent.color = "R";    // Change the grandparent to red
-                    leftRotate(grandparent);    // Left rotate the grandparent
+                    parent.color = "B"; // Change the parent to black
+                    grandparent.color = "R"; // Change the grandparent to red
+                    leftRotate(grandparent); // Left rotate the grandparent
                 }
             }
         }
@@ -209,16 +205,16 @@ public class RedBlackTree<E extends Comparable<E>> {
 
                 // Case 2a: The node is a right child
                 if (isRightChild(node)) {
-                    sibling.color = "B";    // Change sibling to black
-                    parent.color = "R";    // Change parent to red
-                    rightRotate(parent);    // Right rotate the parent
+                    sibling.color = "B"; // Change sibling to black
+                    parent.color = "R"; // Change parent to red
+                    rightRotate(parent); // Right rotate the parent
                 }
 
                 // Case 2b: The node is a left child
                 else if (isLeftChild(node)) {
-                    sibling.color = "B";    // Change sibling to black
-                    parent.color = "R";    // Change parent to red
-                    leftRotate(parent);    // Left rotate the parent
+                    sibling.color = "B"; // Change sibling to black
+                    parent.color = "R"; // Change parent to red
+                    leftRotate(parent); // Left rotate the parent
                 }
                 fixDoubleBlack(node); // Recursion
             }
@@ -233,22 +229,22 @@ public class RedBlackTree<E extends Comparable<E>> {
                     // Case 3a.1: The right child of the sibling is red
                     if (isRed(sibling.right)) {
                         RC = sibling.right;
-                        leftRotate(sibling);        // Left rotate the sibling
-                        rightRotate(parent);        // Right rotate the parent
-                        RC.color = parent.color;    // Change RC to the color of parent
-                        sibling.color = "B";        // Change sibling to black
-                        parent.color = "B";            // Change parent to black
-                        node.color = "B";            // Change node to black
+                        leftRotate(sibling); // Left rotate the sibling
+                        rightRotate(parent); // Right rotate the parent
+                        RC.color = parent.color; // Change RC to the color of parent
+                        sibling.color = "B"; // Change sibling to black
+                        parent.color = "B"; // Change parent to black
+                        node.color = "B"; // Change node to black
                     }
 
                     // Case 3a.2: The left child of the sibling is red
                     else if (isRed(sibling.left)) {
                         RC = sibling.left;
-                        rightRotate(parent);            // Right rotate the parent
-                        sibling.color = parent.color;    // Change sibling to the color of parent
-                        RC.color = "B";                    // Change RC to black
-                        parent.color = "B";                // Change parent to black
-                        node.color = "B";                // Change node to black
+                        rightRotate(parent); // Right rotate the parent
+                        sibling.color = parent.color; // Change sibling to the color of parent
+                        RC.color = "B"; // Change RC to black
+                        parent.color = "B"; // Change parent to black
+                        node.color = "B"; // Change node to black
                     }
                 }
 
@@ -258,22 +254,22 @@ public class RedBlackTree<E extends Comparable<E>> {
                     // Case 3b.1: The left child of the sibling is red
                     if (isRed(sibling.left)) {
                         RC = sibling.left;
-                        rightRotate(sibling);        // Right rotate the sibling
-                        leftRotate(parent);            // Left rotate the parent
-                        RC.color = parent.color;    // Change RC to the color of parent
-                        sibling.color = "B";        // Change sibling to black
-                        parent.color = "B";            // Change parent to black
-                        node.color = "B";            // Change node to black
+                        rightRotate(sibling); // Right rotate the sibling
+                        leftRotate(parent); // Left rotate the parent
+                        RC.color = parent.color; // Change RC to the color of parent
+                        sibling.color = "B"; // Change sibling to black
+                        parent.color = "B"; // Change parent to black
+                        node.color = "B"; // Change node to black
                     }
 
                     // Case 3b.2: The right child of the sibling is red
                     else if (isRed(sibling.right)) {
                         RC = sibling.right;
-                        leftRotate(parent);                // Left rotate the parent
-                        sibling.color = parent.color;    // Change sibling to the color of parent
-                        RC.color = "B";                    // Change RC to black
-                        parent.color = "B";                // Change parent to black
-                        node.color = "B";                // Change node to black
+                        leftRotate(parent); // Left rotate the parent
+                        sibling.color = parent.color; // Change sibling to the color of parent
+                        RC.color = "B"; // Change RC to black
+                        parent.color = "B"; // Change parent to black
+                        node.color = "B"; // Change node to black
                     }
                 }
             }
@@ -281,22 +277,24 @@ public class RedBlackTree<E extends Comparable<E>> {
             // Case 4: The sibling and both of its children are black (or double black)
             else if ((isBlack(sibling) && isBlack(sibling.left) && isBlack(sibling.right)) ||
                     (isBlack(sibling) && isDoubleBlack(sibling.left) && isDoubleBlack(sibling.right))) {
-                // 2nd condition is used when the double black node is NIL and the sibling's children are
-                // NIL since changing NIL to double black changes all instances of NIL to double black
+                // 2nd condition is used when the double black node is NIL and the sibling's
+                // children are
+                // NIL since changing NIL to double black changes all instances of NIL to double
+                // black
 
                 // Case 4a: The parent of sibling is red
-                if (isRed(parent)) {        // The sibling and node share the same parent
-                    sibling.color = "R";    // Change sibling to red
-                    parent.color = "B";        // Change parent to black
-                    node.color = "B";        // Change node to black
+                if (isRed(parent)) { // The sibling and node share the same parent
+                    sibling.color = "R"; // Change sibling to red
+                    parent.color = "B"; // Change parent to black
+                    node.color = "B"; // Change node to black
                 }
 
                 // Case 4b: The parent of sibling is black
                 else if (isBlack(sibling.parent)) {
-                    sibling.color = "R";    // Change sibling to red
-                    parent.color = "DB";    // Change parent to double black
-                    node.color = "B";        // Change node to black
-                    fixDoubleBlack(parent);    // Recursion
+                    sibling.color = "R"; // Change sibling to red
+                    parent.color = "DB"; // Change parent to double black
+                    node.color = "B"; // Change node to black
+                    fixDoubleBlack(parent); // Recursion
                 }
             }
         }

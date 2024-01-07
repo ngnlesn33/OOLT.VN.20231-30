@@ -2,11 +2,6 @@ package model.redblacktree;
 
 import java.io.Serial;
 
-/**
- * This class represents an exception that is thrown when duplicate objects are added to the tree.
- *
- * @author Richard Shu
- */
 public class DuplicateItemException extends RuntimeException {
     @Serial
     private static final long serialVersionUID = 1L;
