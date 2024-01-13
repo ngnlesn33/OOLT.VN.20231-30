@@ -132,11 +132,11 @@ public class GenericTreeAnimationController {
 
     @FXML
     public void handleTraverseBFS() {
-        ArrayList<GenericTree.TreeNode<Integer>> bfsResult = tree.traverseBreadthFirst(); // replace Integer with the
+        ArrayList<TreeNode<Integer>> bfsResult = tree.traverseBreadthFirst(); // replace Integer with the
                                                                                           // type of elements in your
         // tree
         for (int i = 0; i < bfsResult.size(); i++) {
-            GenericTree.TreeNode<Integer> node = bfsResult.get(i);
+            TreeNode<Integer> node = bfsResult.get(i);
             KeyFrame keyFrame = new KeyFrame(Duration.millis(1000 + 1000 * i), e -> {
                 view.displayTree();
                 view.highlightNode(node);

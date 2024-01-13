@@ -2,17 +2,19 @@
 
 **Member information and assignment:**
 
-- 20215131 - Nguyễn Lê Sơn - Team lead
+- 20215131 - **Nguyễn Lê Sơn - Team leader**
     - Implementing the Generic Tree data structure, Binary Search Tree data structure and the Red Black Tree data
       structure.
     - Usecase diagram + General Class diagram
-    - Slide
+    - Slide + Báo cáo
 - Lê Hữu Tài
     - Research tree data structures and operations
     - AVL
     - Báo cáo
-- Nguyễn Trung Sơn
-- Đoàn Bá Sơn
+- Nguyễn Trung Sơn 
+    - Implementing the BST Tree data structure.
+- Đoàn Bá Sơn 
+    - Implementing the BST Tree data structure.
 
 **Link of demo video for the application:**
 

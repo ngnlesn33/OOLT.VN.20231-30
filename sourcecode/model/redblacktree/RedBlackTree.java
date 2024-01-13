@@ -1,10 +1,10 @@
 package model.redblacktree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import model.AbstractTree;
 
-public class RedBlackTree<E extends Comparable<E>> {
+import java.util.*;
+
+public class RedBlackTree<E extends Comparable<E>>  extends AbstractTree<E> {
     protected RBNode<E> root;
     protected final RBNode<E> NIL = new RBNode<>(null, "B");
 
@@ -15,7 +15,12 @@ public class RedBlackTree<E extends Comparable<E>> {
         return root;
     }
 
-    public void insert(E key) {
+    @Override
+    public boolean search(E e) {
+        return false;
+    }
+
+    public boolean insert(E key) {
         RBNode<E> child = new RBNode<>(key, "R");
         child.left = NIL; // Default left child is set to NIL
         child.right = NIL; // Default right child is set to NIL
@@ -35,6 +40,7 @@ public class RedBlackTree<E extends Comparable<E>> {
             }
         }
         insertionCleanup(child); // Update tree to have the properties of a Red-Black Tree
+        return false;
     }
 
     private RBNode<E> insertionPoint(E key) {
@@ -119,7 +125,7 @@ public class RedBlackTree<E extends Comparable<E>> {
         }
     }
 
-    public void delete(E key) {
+    public boolean delete(E key) {
         if (isEmpty()) {
             throw new EmptyTreeException();
         }
@@ -175,6 +181,12 @@ public class RedBlackTree<E extends Comparable<E>> {
         } catch (NullPointerException e) {
             throw new NullPointerException("The item cannot be found in the tree.");
         }
+        return false;
+    }
+
+    @Override
+    public int getSize() {
+        return 0;
     }
 
     private RBNode<E> nodeToDelete(E key) {
@@ -452,4 +464,8 @@ public class RedBlackTree<E extends Comparable<E>> {
         pivot.right.parent = pivot; // Update parent reference
     }
 
+    @Override
+    public Iterator<E> iterator() {
+        return null;
+    }
 }

@@ -34,7 +34,6 @@ public class BSTAnimationController {
     private final Stack<Action> undoStack = new Stack<>();
     private final Stack<Action> redoStack = new Stack<>();
 
-
     private void pushAction(int key, boolean isInsert) {
         undoStack.push(new Action(key, isInsert));
         // Clear the redo stack when a new action is performed
