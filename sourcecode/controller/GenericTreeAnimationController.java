@@ -1,5 +1,9 @@
 package controller;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import model.generictree.*;
 import view.GenericTreeView;
 import javafx.animation.KeyFrame;
@@ -11,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -68,7 +73,7 @@ public class GenericTreeAnimationController {
             view.displayTree();
             view.setStatus(key + " is inserted into the tree");
         }
-
+        tfKey.setText("");
     }
 
     @FXML
@@ -91,6 +96,7 @@ public class GenericTreeAnimationController {
             view.displayTree();
             view.setStatus(key + " is deleted from the tree");
         }
+        tfKey.setText("");
     }
 
     @FXML
@@ -119,17 +125,18 @@ public class GenericTreeAnimationController {
             view.displayTree();
             view.setStatus(key + " is updated to " + newKey);
         }
+        tfKey.setText("");
     }
 
     Timeline timeline = new Timeline();
 
     @FXML
     public void handleTraverseBFS() {
-        ArrayList<GenericTree.TreeNode<Integer>> bfsResult = tree.traverseBreadthFirst(); // replace Integer with the
+        ArrayList<TreeNode<Integer>> bfsResult = tree.traverseBreadthFirst(); // replace Integer with the
                                                                                           // type of elements in your
         // tree
         for (int i = 0; i < bfsResult.size(); i++) {
-            GenericTree.TreeNode<Integer> node = bfsResult.get(i);
+            TreeNode<Integer> node = bfsResult.get(i);
             KeyFrame keyFrame = new KeyFrame(Duration.millis(1000 + 1000 * i), e -> {
                 view.displayTree();
                 view.highlightNode(node);
@@ -188,6 +195,19 @@ public class GenericTreeAnimationController {
     @FXML
 
     public void handleBack(ActionEvent event) {
+        // handle back action
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/main_menu.fxml"));
+            Parent root = loader.load();
 
+            // Get the MainMenuController and set the mainStage
+            MainMenuController mainMenuController = loader.getController();
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            mainMenuController.setMainStage(stage);
+            stage.setScene(new Scene(root, 300, 400));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

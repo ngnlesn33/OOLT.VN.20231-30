@@ -1,12 +1,13 @@
 package view;
 
-import model.generictree.GenericTree;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import model.generictree.GenericTree;
+import model.generictree.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +15,7 @@ import java.util.Map;
 public class GenericTreeView extends Pane {
     private final GenericTree<Integer> tree;
 
-    private final Map<GenericTree.TreeNode<Integer>, Circle> nodeCircles = new HashMap<>();
+    private final Map<TreeNode<Integer>, Circle> nodeCircles = new HashMap<>();
 
     public void setStatus(String msg) {
         Text statusText = new Text(20, 20, msg);
@@ -37,7 +38,7 @@ public class GenericTreeView extends Pane {
     }
 
     // Display generic tree recursively
-    public void displayTree(GenericTree.TreeNode<Integer> root, double x, double y, double hGap, double vGap) {
+    public void displayTree(TreeNode<Integer> root, double x, double y, double hGap, double vGap) {
         if (root == null) {
             return;
         }
@@ -77,7 +78,7 @@ public class GenericTreeView extends Pane {
         }
     }
 
-    public void highlightNode(GenericTree.TreeNode<Integer> node) {
+    public void highlightNode(TreeNode<Integer> node) {
         if (node != null) {
             Circle circle = nodeCircles.get(node);
             if (circle != null) {
@@ -86,4 +87,3 @@ public class GenericTreeView extends Pane {
         }
     }
 }
-

@@ -91,9 +91,9 @@ public class MainMenuController {
             stage.show();
 
 //            // Close the main menu window after the tree visualization window is shown
-//            if (mainStage != null) {
-//                mainStage.close();
-//            }
+            if (mainStage != null) {
+                mainStage.close();
+            }
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to load the FXML file: " + fxmlFile, e);
         }

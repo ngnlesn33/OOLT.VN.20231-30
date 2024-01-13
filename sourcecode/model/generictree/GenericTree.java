@@ -1,12 +1,13 @@
 package model.generictree;
 
-import java.util.Iterator;
-import java.util.List;
+import model.AbstractTree;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class GenericTree<E extends Comparable<E>> {
+public class GenericTree<E extends Comparable<E>> extends AbstractTree<E> {
     protected TreeNode<E> root;
     protected int size = 0;
 
@@ -33,12 +34,12 @@ public class GenericTree<E extends Comparable<E>> {
         if (root.element.equals(key)) {
             return null;
         }
-        for (TreeNode<E> child : root.children) {
+        for (TreeNode<E> child : root.getChildren()) {
             if (child.element.equals(key)) {
                 return root.element;
             }
         }
-        for (TreeNode<E> child : root.children) {
+        for (TreeNode<E> child : root.getChildren()) {
             E parent = getParentHelper(child, key);
             if (parent != null) {
                 return parent;
@@ -47,33 +48,13 @@ public class GenericTree<E extends Comparable<E>> {
         return null;
     }
 
-
-
-    public static class TreeNode<E extends Comparable<E>> {
-        protected E element;
-        private final List<TreeNode<E>> children;
-
-        public TreeNode(E e) {
-            element = e;
-            children = new ArrayList<>();
-        }
-
-        public E getElement() {
-            return element;
-        }
-
-        public List<TreeNode<E>> getChildren() {
-            return children;
-        }
-
-        public void addChild(TreeNode<E> child) {
-            children.add(child);
-        }
-
-        public void removeChild(TreeNode<E> child) {
-            children.remove(child);
-        }
+    @Override
+    public Iterator<E> iterator() {
+        return null;
     }
+
+
+
 
     public boolean search(E e) {
         if (root == null) {
@@ -90,18 +71,19 @@ public class GenericTree<E extends Comparable<E>> {
                 return true;
             }
 
-            queue.addAll(current.children);
+            queue.addAll(current.getChildren());
         }
         return false;
     }
 
-    public void insert(E e) {
+    public boolean insert(E e) {
         if (root == null) {
             // Tree is empty, create the root node
             root = new TreeNode<>(e);
             size++;
-            return;
+            return false;
         }
+        return false;
     }
 
     public void insert(E e, E parent) {
@@ -124,11 +106,11 @@ public class GenericTree<E extends Comparable<E>> {
     private boolean insertHelper(TreeNode<E> currentNode, E data, E parentData) {
         if (currentNode.element.equals(parentData)) {
             // Found the parent node, add the new node as its child
-            currentNode.children.add(new TreeNode<>(data));
+            currentNode.getChildren().add(new TreeNode<>(data));
             return true;
         } else {
             // Try to insert into children
-            for (TreeNode<E> child : currentNode.children) {
+            for (TreeNode<E> child : currentNode.getChildren()) {
                 if (insertHelper(child, data, parentData)) {
                     return true;
                 }
@@ -137,10 +119,10 @@ public class GenericTree<E extends Comparable<E>> {
         }
     }
 
-    public void delete(E data) {
+    public boolean delete(E data) {
         if (root == null) {
             System.out.println("Tree is empty. Cannot delete from an empty tree.");
-            return;
+            return false;
         }
 
         if (root.element.equals(data)) {
@@ -149,10 +131,16 @@ public class GenericTree<E extends Comparable<E>> {
         } else {
             deleteHelper(root, data);
         }
+        return false;
+    }
+
+    @Override
+    public int getSize() {
+        return 0;
     }
 
     private void deleteHelper(TreeNode<E> currentNode, E data) {
-        Iterator<TreeNode<E>> iterator = currentNode.children.iterator();
+        Iterator<TreeNode<E>> iterator = currentNode.getChildren().iterator();
 
         while (iterator.hasNext()) {
             TreeNode<E> child = iterator.next();
@@ -184,7 +172,7 @@ public class GenericTree<E extends Comparable<E>> {
         }
 
         // Update keys in children
-        for (TreeNode<E> child : currentNode.children) {
+        for (TreeNode<E> child : currentNode.getChildren()) {
             updateKeyHelper(child, oldKey, newKey);
         }
     }
@@ -203,7 +191,7 @@ public class GenericTree<E extends Comparable<E>> {
             TreeNode<E> currentNode = queue.poll();
             result.add(currentNode);
 
-            for (TreeNode<E> child : currentNode.children) {
+            for (TreeNode<E> child : currentNode.getChildren()) {
                 queue.offer(child);
             }
         }
@@ -225,7 +213,7 @@ public class GenericTree<E extends Comparable<E>> {
         if (root.element.equals(key)) {
             return root;
         }
-        for (TreeNode<E> child : root.children) {
+        for (TreeNode<E> child : root.getChildren()) {
             TreeNode<E> node = findNodeHelper(child, key);
             if (node != null) {
                 return node;

@@ -1,18 +1,32 @@
 package controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.avl.AVL;
 import model.avl.Action;
 import view.AVLView;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Stack;
 
 public class AVLAnimationController {
     @FXML
     private TextField tfKey;
+    @FXML
+    private Button backButton;
 
     // Add your AVL and AVLView instances here
     private final AVL<Integer> tree; /// Create a tree
@@ -77,6 +91,7 @@ public class AVLAnimationController {
         // After inserting, push the action to the history stack
         pushAction(key, true);
         clearRedoStack(); // Clear the redo stack after a new action
+        tfKey.setText("");
     }
 
     @FXML
@@ -95,6 +110,7 @@ public class AVLAnimationController {
         tfKey.setText("");
         pushAction(key, false);
         clearRedoStack(); // Clear the redo stack after a new action
+        tfKey.setText("");
     }
 
     // Change the node with current value to a new value
@@ -197,6 +213,50 @@ public class AVLAnimationController {
         }
     }
 
+    @FXML
     public void handleTraverseBFS(ActionEvent event) {
+        Iterator<Integer> iterator = tree.iterator();
+        List<Integer> elements = new ArrayList<>();
+        while (iterator.hasNext()) {
+            elements.add(iterator.next());
+        }
+        // Create a timeline to schedule the animation, each element will be highlighted for 2
+        // seconds and the next element will be highlighted after 2 seconds
+        // The last element will be highlighted for 2 seconds and then the nodes will be
+        // unhighlighted after 2 seconds as well (total 4 seconds)
+        // The total time for the animation is 2 * elements.size() + 2 seconds
+        // The BFS traversal will block the UI thread, so we need to run it in a separate thread to
+        // avoid blocking the UI thread.
+        Timeline timeline = new Timeline();
+        for (int i = 0; i < elements.size(); i++) {
+            Integer element = elements.get(i);
+            timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(i * 2), e -> {
+                view.highlightNode(element);
+                System.out.println(element);
+            }));
+        }
+        // Add a delay at the end
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(elements.size() * 2 + 2)));
+        timeline.play();
+        // Unhighlight the nodes after the animation is done
+        timeline.setOnFinished(e -> view.displayTree());
+    }
+
+    @FXML
+    public void handleBack(ActionEvent event) {
+        // handle back action
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/main_menu.fxml"));
+            Parent root = loader.load();
+
+            // Get the MainMenuController and set the mainStage
+            MainMenuController mainMenuController = loader.getController();
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            mainMenuController.setMainStage(stage);
+            stage.setScene(new Scene(root, 300, 400));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

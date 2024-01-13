@@ -7,6 +7,11 @@
 <?import javafx.scene.layout.HBox?>
 
 <BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AVLAnimationController">
+    <top>
+        <HBox alignment="BASELINE_LEFT">
+            <Button fx:id="backButton" onAction="#handleBack" text="BACK"/>
+        </HBox>
+    </top>
     <center>
         <!-- Your BTView component can go here -->
     </center>
